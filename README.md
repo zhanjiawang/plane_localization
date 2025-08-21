@@ -33,3 +33,6 @@ best_transformation_score: 1865 best_transformation_matrix:
 localization_time: 0.772197
 ```
 <img width="1183" height="1051" alt="Screenshot from 2025-08-21 19-02-45" src="https://github.com/user-attachments/assets/1d5cfc66-71d8-4679-8657-56e9c63406a5" />
+```
+The above figure achieves correct global positioning (relocation) in an indoor scene of approximately 2500 square meters
+```
