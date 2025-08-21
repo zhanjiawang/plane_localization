@@ -1,0 +1,5 @@
+<launch>
+    <rosparam file="$(find plane_localization)/config/params.yaml" command="load" />
+    <node pkg="plane_localization" type="plane_localization" name="plane_localization" output="screen"/>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find plane_localization)/rviz/show.rviz"/>
+</launch>
