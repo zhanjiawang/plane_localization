@@ -1,5 +1,5 @@
 # plane_localization
-This is a ROS package for indoor global localization (relocation) based on plane octree and plane features.
+This is a ROS package for indoor global localization (relocation) based on plane octree and plane features. The test results show that the global localization (relocation) algorithm can achieve about 3.5 seconds of octree construction and global plane feature extraction (only need to run once) in a map composed of 372 keyframes, complete the reading of plane features and octree in about 0.02 seconds, and complete global localization (relocation) in about 1.0 seconds. It is a robust and fast global localization (relocation) algorithm for indoor or other structured scenes with more plane features.
 
 ## Usage
 #### 1. Requirement
