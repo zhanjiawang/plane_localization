@@ -19,8 +19,6 @@ catkin_make
 source ./devel/setup.bash
 roslaunch plane_localization start.launch
 #result
-<img width="1183" height="1051" alt="Screenshot from 2025-08-21 19-02-45" src="https://github.com/user-attachments/assets/fa1b9d45-b2c1-402d-9d1e-0afd550975c2" />
-
 ---------------------------
 transformation_matrix_vector size: 49892
 cluster_transformation_matrix_vector size: 19614
@@ -34,3 +32,4 @@ best_transformation_score: 1865 best_transformation_matrix:
            0            0            0            1
 localization_time: 0.772197
 ```
+<img width="1183" height="1051" alt="Screenshot from 2025-08-21 19-02-45" src="https://github.com/user-attachments/assets/1d5cfc66-71d8-4679-8657-56e9c63406a5" />
