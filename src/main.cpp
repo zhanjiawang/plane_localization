@@ -37,7 +37,7 @@ typedef struct PlaneSelectRule {
 
 bool get_test_data_ = false;
 int test_index_;
-
+std::string work_mode_;
 std::string current_path_;
 std::string relative_path_;
 float lidar_max_range_;
@@ -77,7 +77,8 @@ std::vector<std::vector<int>> octree_planes_map_select_index_;
 void ReadParam(ros::NodeHandle &nh) {
   nh.param<int>("plane_localization/test_index", test_index_, 0);
   std::cout << "test_index: " << test_index_ << std::endl;
-
+  nh.param<std::string>("plane_localization/work_mode", work_mode_, "");
+  std::cout << "work_mode: " << work_mode_ << std::endl;
   nh.param<std::string>("plane_localization/relative_path", relative_path_, "");
   std::cout << "relative_path: " << relative_path_ << std::endl;
   nh.param<float>("plane_localization/lidar_max_range", lidar_max_range_, 50.0);
@@ -1734,11 +1735,16 @@ int main(int argc, char *argv[]) {
   //点云地图可视化
   ViewMapPoints();
 
-  //八叉树地图只需要构建一次，之后直接读取即可
-  //构建八叉树地图
-  // ConstructOctreeMap(map_range);
-  //读取已经构建好的八叉树地图
-  ReadOctreeMap(map_range);
+  if (work_mode_ == "construct") {
+    //八叉树地图只需要构建一次，之后直接读取即可
+    //构建八叉树地图
+    ConstructOctreeMap(map_range);
+  } else if (work_mode_ == "read") {
+    //读取已经构建好的八叉树地图
+    ReadOctreeMap(map_range);
+  } else {
+    return -1;
+  }
 
   //测试基于平面特征的重定位,测试使用，若正式运行应注释，由订阅的ros话题点云数据的回调函数中使用重定位
   TestLocalization();
